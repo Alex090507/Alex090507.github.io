@@ -1,0 +1,407 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* ================= NAV ================= */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 90px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 40px;
+
+  z-index: 10;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0)
+  );
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: white;
+}
+
+/* меню по центру */
+nav ul {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 14px;
+  transition: 0.25s ease;
+  display: inline-block;
+}
+
+nav a:hover {
+  transform: scale(1.15);
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.6),
+    0 0 16px rgba(255,255,255,0.4);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* затемнение */
+.hero::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* ================= CONTENT (ГЛАВНАЯ) ================= */
+
+.content {
+  position: relative;
+  z-index: 1;
+
+  text-align: center;
+  color: white;
+
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.content h1 {
+  font-size: 90px;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* кнопка */
+.content button {
+  padding: 14px 34px;
+
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.12);
+  color: white;
+
+  font-size: 17px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s;
+
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.content button:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 25px rgba(255,255,255,0.3);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= HOME ================= */
+
+.home .hero {
+  background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+}
+.home .content {
+  background: rgba(0,0,0,0.4);
+  padding: 40px 80px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+/* ================= SERVICES ================= */
+
+.services .hero {
+  background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+
+  flex-direction: column;
+  justify-content: flex-start;
+
+  padding-top: 120px;
+}
+
+/* ВАЖНО: НЕ ломаем content на services */
+.services .content {
+  padding: 0;
+}
+
+/* заголовок services */
+.services h1 {
+  font-size: 70px;
+}
+
+/* ================= SERVICES GRID ================= */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  width: 90%;
+  margin-top: 50px;
+  z-index: 1;
+}
+
+/* карточки */
+.service-card {
+  background: rgba(0,0,0,0.55);
+  border-radius: 16px;
+  overflow: hidden;
+  color: white;
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease; /* 👈 важно */
+
+  will-change: transform;
+}
+
+/* задержки по очереди */
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.25s; }
+.service-card:nth-child(3) { animation-delay: 0.4s; }
+.service-card:nth-child(4) { animation-delay: 0.55s; }
+
+.service-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.service-card h3 {
+  font-size: 18px;
+  margin: 12px 0 6px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #ccc;
+  padding: 0 10px 15px;
+}
+
+.service-card:hover {
+  transform: scale(1.07) translateY(-10px);
+  box-shadow: 0 20px 50px rgba(255,255,255,0.08),
+              0 15px 40px rgba(0,0,0,0.6);
+}
+
+@keyframes cardFade {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/* ================= PAGE FADE IN ================= */
+
+body {
+  font-family: Arial, sans-serif;
+  background: black; /* 👈 ВАЖНО */
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+/* ================= CONTACTS ================= */
+
+.contacts .hero {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: flex-start;
+
+  padding-top: 120px;
+
+  position: relative;
+
+  background: url("https://images.unsplash.com/photo-1518770660439-4636190af475") center/cover no-repeat;
+}
+
+/* затемнение (ВАЖНО — не убивает фон) */
+.contacts .hero::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.55);
+  z-index: 0;
+}
+
+/* текст */
+.contacts .content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+
+  margin-bottom: 40px;
+}
+
+.contacts .content h1 {
+  font-size: 70px;
+}
+
+/* карточки контактов */
+.contact-grid {
+  display: flex;
+  gap: 20px;
+
+  z-index: 1;
+  margin-bottom: 40px;
+}
+
+.contact-card {
+  background: rgba(0,0,0,0.55);
+  color: white;
+
+  padding: 45px 35px;   /* увеличили размер внутри */
+  border-radius: 18px;
+
+  width: 300px;         /* увеличили ширину */
+
+  text-align: center;
+
+  backdrop-filter: blur(8px);
+
+  transition: 0.3s;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+/* заголовок */
+.contact-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* текст */
+.contact-card p {
+  font-size: 17px;
+  color: #ddd;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px) scale(1.06);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* форма */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  width: 320px;
+
+  z-index: 1;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+
+  outline: none;
+
+  background: rgba(255,255,255,0.1);
+  color: white;
+
+  backdrop-filter: blur(10px);
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.contact-form button {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+
+  background: rgba(255,255,255,0.15);
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.25);
+}
