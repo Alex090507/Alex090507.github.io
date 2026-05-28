@@ -418,4 +418,35 @@ body.loaded {
   .home .content {
     padding: 20px;
   }
+  @media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+}
+@media (max-width: 768px) {
+  nav {
+    padding: 0 20px;
+  }
+
+  nav ul {
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    text-align: center;
+    padding-top: 100px;
+  }
 }
