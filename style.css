@@ -407,46 +407,54 @@ body.loaded {
 }
 @media (max-width: 768px) {
 
-  .content h1 {
-    font-size: 40px;
-  }
-
-  .content p {
-    font-size: 16px;
-  }
-
-  .home .content {
-    padding: 20px;
-  }
-  @media (max-width: 900px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
-}
-@media (max-width: 768px) {
+  /* NAV */
   nav {
-    padding: 0 20px;
+    padding: 0 15px;
   }
 
   nav ul {
     gap: 10px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .logo {
-    font-size: 20px;
+    font-size: 18px;
   }
-}
-@media (max-width: 768px) {
+
+  /* HERO */
   .hero {
-    text-align: center;
-    padding-top: 100px;
+    padding-top: 120px;
+    align-items: flex-start;
   }
+
+  /* ТЕКСТ */
+  .content h1 {
+    font-size: 32px !important;
+  }
+
+  .content p {
+    font-size: 14px !important;
+  }
+
+  .home .content {
+    padding: 15px;
+  }
+
+  /* КНОПКИ */
+  .content button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  /* SERVICES GRID */
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    width: 95%;
+  }
+
+  /* КАРТОЧКИ */
+  .service-card {
+    width: 100%;
+  }
+
 }
