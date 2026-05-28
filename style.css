@@ -405,3 +405,17 @@ body.loaded {
   transform: scale(1.05);
   background: rgba(255,255,255,0.25);
 }
+@media (max-width: 768px) {
+
+  .content h1 {
+    font-size: 40px;
+  }
+
+  .content p {
+    font-size: 16px;
+  }
+
+  .home .content {
+    padding: 20px;
+  }
+}
